@@ -193,28 +193,27 @@ ____
 \ \ \ 	$ help cd >> ayudaProgramas.txt
  > > >	$ figlet -f small "Que es Bash?" >> ShaBang0.txt
 /_/_/ 	$ echo -e "\033[31;44mHola de colores" >> comandosDivertidos.txt
-      	$ grep -A4 -B1 "#include<stdio.h>" /
+      	$ grep -r -A4 -B1 "unistd" /usr/src/ >> libreriasSistema.txt
   __
- / /	$ uniq 
-< < 	$
- \_\	$
+ / /	$ uniq < listaDeValores.txt # es lo mismo que uniq listaDeValores.txt
+< < 	$ sort < listaDeValores.txt # es lo mismo que sort listaDeValores.txt
+ \_\	$ ./script.py < cultura.txt
     
  _   Operador para usar las salidas como entradas. 
 | |	$ ps -e | sed "s/bash/el mejor shell del mundo/g" 
 | |	$ ls -l | grep "\-rwx"
-| |	$
-|_|	$
+| |	$ echo ".*." | sed "s/\./.*./g" | sed "s/*/*O*/g"
+|_|	$ du -s * | sort -nr > $HOME/user_space_report.txt
 (7)___________________________________________________
  _  _         _    __   __        _    _ 
 | || |__ _ __| |__ \ \ / /__ __ _| |_ | |
 | __ / _` / _| / /  \ V / -_) _` | ' \|_|
 |_||_\__,_\__|_\_\   |_|\___\__,_|_||_(_)
-Scripts (cinematograficos) de Tarantino... Version "hacker":
-Queremos extraer todas las instancias de "fuck" (y derivados)
-en las peliculas de Quentin Tarantino y reemplazarlas con 
-"hack".  Esto para hacer una coleccion de "madrazos" a lo hacker.
-Descargamos los scripts.  Es necesario escapar el &.
-                                         
+Tarantino... Version "hacker":  Queremos extraer todas las 
+instancias de "fuck" (y derivados) en las peliculas de Quentin 
+Tarantino y reemplazarlas con "hack".  Esto para hacer una 
+coleccion de "madrazos" a lo hacker.  Descargamos los scripts:
+
 $ wget http://www.imsdb.com/scripts/Django-Unchained.html http://www.imsdb.com/scripts/Four-Rooms.html http://www.imsdb.com/scripts/From-Dusk-Till-Dawn.html http://www.imsdb.com/scripts/Inglourious-Basterds.html  http://www.imsdb.com/scripts/Jackie-Brown.html http://www.imsdb.com/scripts/Natural-Born-Killers.html http://www.imsdb.com/scripts/Pulp-Fiction.html http://www.imsdb.com/scripts/Reservoir-Dogs.html http://www.imsdb.com/scripts/True-Romance.html http://www.imsdb.com/scripts/Kill-Bill-Volume-1-\&-2.html
 
 Ahora, usen las herramientas que aprendimos para hacer un 
@@ -222,9 +221,10 @@ archivo de texto con todas las instancias de "fuck" en las
 peliculas, reemplazadas por "hack".
  - Se debe extraer 2 lineas antes y 2 despues de la linea con
 "fuck", para dar el contexto.  
- - Se debe preservar capitalizacion para estos casos:  
+ - Se debe preservar capitalizacion para estos casos:
  	("Fuck" -> "Hack", "fuck" -> "hack", "FUCK" -> "HACK")
  - No deben mostrarse los nombres de los archivos.
  - Pueden comparar su archivo con el mio, usando diff.
+http://kcallow.github.io/courses/ShaBang/fuck2hack.txt
 (8)___________________________________________________
 
