@@ -487,4 +487,59 @@ done
 
 http://www.cyberciti.biz/faq/bash-for-loop/
 (17)___________________________________________________
+ __  __           _           _         _               _     
+|  \/  |__ _ _ _ (_)_ __ _  _| |__ _ __(_)___ _ _    __| |___ 
+| |\/| / _` | ' \| | '_ \ || | / _` / _| / _ \ ' \  / _` / -_)
+|_|  |_\__,_|_||_|_| .__/\_,_|_\__,_\__|_\___/_||_| \__,_\___|
+                   |_|                                        
+    _       _              
+ __| |_ _ _(_)_ _  __ _ ___
+(_-<  _| '_| | ' \/ _` (_-<
+/__/\__|_| |_|_||_\__, /__/
+                  |___/    
+
+Para combinar dos string en uno solo, basta con referenciarlos
+uno despues del otro.
+$ X=perrow
+$ Y=calele
+$ Z=$X$Y
+$ echo $Z
+perrowcalele
+
+Para sacar substrings de un string, se usa la sintaxis 
+	${string:position:length}
+$ echo ${Z:6:3}
+
+Para obtener la longitud de un string, hacer:
+	${#string}
+$ echo ${#Z}
+
 (18)___________________________________________________
+ ___                  _    _              _               _     
+| _ \___ __ ___ _ __ | |__(_)_ _  __ _ __(_)___ _ _    __| |___ 
+|   / -_) _/ _ \ '  \| '_ \ | ' \/ _` / _| / _ \ ' \  / _` / -_)
+|_|_\___\__\___/_|_|_|_.__/_|_||_\__,_\__|_\___/_||_| \__,_\___|
+                                                                
+                      
+ __ _ ___ _ _  ___ ___
+/ _` / -_) ' \/ -_|_-<
+\__, \___|_||_\___/__/
+|___/                 
+
+Los algoritmos geneticos se basan en simular los procesos de mutacion
+y seleccion natural que ocurren en el mundo natural.  Para crear nuevos
+individuos, se combinan los genes de los padres en lo que se conoce como
+cruzamiento.
+
+ASDFWATDAFGDFGDTHADTHATDYADTHATATDH
+			|
+ASDFASERGGRGDRAGRGADRGADRGRHGHGHARH
+
+Produce:
+ASDFWATDAFGDFGDTHADTHATDRGRHGHGHARH
+
+Hagan un script Bash que lee dos strings de la misma longitud desde la
+entrada estandar y los recombine en un punto aleatorio.  Si no son
+de la misma longitud, debe rechazarlos.
+Debe imprimir su resultado a la salida estandar.
+(19)___________________________________________________
