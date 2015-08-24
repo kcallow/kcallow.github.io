@@ -1,0 +1,467 @@
+                 ___    ___     ___                        
+                █   |  █   |   █   |            
+             ___█   |__█   |___█   |             
+            █                  █   |            
+            █___     __     ___█   |            
+                █   |  █   |   █   |            
+             ___█   |__█   |___█   |            
+            █                  █   |            
+            █___     __     ___█   |            
+                █   |  █   |   █___|            
+                █___|  █___|   █___)            
+                                        
+ ____  _                 _                       
+/ ___|| |__   __ _      | |__   __ _ _ __   __ _ 
+\___ \| '_ \ / _` |_____| '_ \ / _` | '_ \ / _` |
+ ___) | | | | (_| |_____| |_) | (_| | | | | (_| |
+|____/|_| |_|\__,_|     |_.__/ \__,_|_| |_|\__, |
+                                           |___/ 
+ ___          _      _ _    _  _ _       _         
+| _ ) __ _ __| |_   | | |  | \| (_)_ _  (_)__ _ ___
+| _ \/ _` (_-< ' \  |_  _| | .` | | ' \ | / _` (_-<
+|___/\__,_/__/_||_|   |_|  |_|\_|_|_||_|/ \__,_/__/
+                                      |__/         
+	Con Kenneth Callow.
+Sesion 1:  Variables, funciones, algoritmos geneticos.
+(0)___________________________________________________
+  ___                        _             _        ___ _       _ 
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___   / __| |_ _ _| |
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) | (__|  _| '_| |
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \___|\__|_| |_|
+
+ /\ ____ Suspende ("pone a dormir") un programa. Se puede continuar
+|/\|_  / con los comandos:
+    / /    $ fg # pone en foreground
+   /___|   $ bg # en background (como si se hubiera ejecutado con &)
+          
+
+ /\  ___  Interrumpe (mata) a un programa corriendo.  Tambien se
+|/\|/ __| puede interrumpir con
+   | (__    $ kill <pid>	# el pid se puede ver con ps o top
+    \___|   $ killall <name>
+         
+         
+ /\ ___   Finaliza las entradas de texto en muchos programas, al
+|/\|   \  insertar el caracter fin de transmision.
+   | |) |
+   |___/ 
+         
+http://web.cecs.pdx.edu/~rootd/catdoc/guide/TheGuide_38.html
+https://en.wikipedia.org/wiki/End-of-text_character
+https://en.wikipedia.org/wiki/End-of-transmission_character
+(1)___________________________________________________
+  ___                        _             _        ___ _       _ 
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___   / __| |_ _ _| |
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) | (__|  _| '_| |
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \___|\__|_| |_|
+         
+ /\ _  _  Borra un caracter.
+|/\| || |
+   | __ |
+   |_||_|
+         
+ /\__      __
+|/\\ \    / /  Borra la ultima palabra.
+    \ \/\/ / 
+     \_/\_/  
+             
+ /\ _   _ 
+|/\| | | |     Borra toda la linea.
+   | |_| |
+    \___/ 
+
+ /\ _____ 
+|/\|_   _|	Transpone la letra actual con la anterior. Mueve 
+     | |  	cursor a la derecha.
+     |_|  
+http://cli.learncodethehardway.org/bash_cheat_sheet.pdf
+(2)___________________________________________________
+  ___                        _             _        ___ _       _ 
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___   / __| |_ _ _| |
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) | (__|  _| '_| |
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \___|\__|_| |_|
+         
+ /\ ___ 
+|/\| _ \       Permite una busqueda reversa en el historial de
+   |   /       comandos.  Tradicionalmente duplicaba la ultima
+   |_|_\       linea en ser digitada (como en sh).
+   		Bash:
+        	(reverse-i-search)`vim': rm script.vim
+		Sh:
+		$ ls^R
+		ls -a^R
+		ls -l
+
+ /\__   __
+|/\\ \ / /	Pega el contenido borrado con ^H, ^W, ^U.
+    \ V / 
+     |_|  
+
+ /\   _      Cursor al comienzo   /\ ___	Cursor al fin 
+|/\| /_\     de la linea.        |/\| __|	de la linea.
+    / _ \                           | _| 
+   /_/ \_\                          |___|
+(3)___________________________________________________
+  ___                        _             _        ___ _       _ 
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___   / __| |_ _ _| |
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) | (__|  _| '_| |
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \___|\__|_| |_|
+
+ O simplemente modo vi:
+ 	$ set -o vi
+ O modo emacs:
+ 	$ set -o emacs
+  ___                        _             _           _   __    _       
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___  __ _(_) / /_ _(_)_ __  
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) \ V / |/ /\ V / | '  \ 
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \_/|_/_/  \_/|_|_|_|_|
+
+-----------------------------------------------------------
+Command 	Description 
+-----------------------------------------------------------
+vi filename 	Open or create file 
+vi 		Open new file to be named later 
+vi -r filename 	Recover crashed file 
+view filename 	Open file read-only
+h 		Move left one character 
+j 		Move down one line 
+k 		Move up one line 
+l 		Move right one character 
+(4)___________________________________________________
+  ___                        _             _           _   __    _       
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___  __ _(_) / /_ _(_)_ __  
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) \ V / |/ /\ V / | '  \ 
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \_/|_/_/  \_/|_|_|_|_|
+
+-----------------------------------------------------------
+Command 	Description 
+-----------------------------------------------------------
+w 		Move right one word 
+W 		Move right one word (past punctuation) 
+b 		Move left one word 
+B 		Move left one word (past punctuation) 
+e 		Move to end of current word 
+Return 		Move down one line 
+Backspace 	Move left one character 
+Spacebar 	Move right one character 
+H 		Move to top of screen 
+M 		Move to middle of screen 
+L 		Move to bottom of screen 
+Ctrl-F 		Page forward one screen 
+Ctrl-D 		Scroll forward one-half screen 
+Ctrl-B 		Page backward one screen 
+Ctrl-U 		Scroll backward one-half screen 
+
+ http://docs.oracle.com/cd/E19683-01/806-7612/editorvi-tbl-83/index.html 
+(5)___________________________________________________
+  ___                        _             _           _   __    _       
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___  __ _(_) / /_ _(_)_ __  
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) \ V / |/ /\ V / | '  \ 
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \_/|_/_/  \_/|_|_|_|_|
+
+-----------------------------------------------------------
+Command 	Description 
+-----------------------------------------------------------
+a 		Insert characters to right of cursor 
+A 		Insert characters at end of line 
+i 		Insert characters to left of cursor 
+I 		Insert characters at beginning of line 
+o 		Insert line below cursor 
+O 		Insert line above cursor 
+cw 		Change word (or part of word) to right of cursor 
+cc 		Change line 
+C 		Change from cursor to end of line 
+s 		Substitute string for character(s) from cursor forward 
+r 		Replace character at cursor with one other character 
+r Return 	Break line 
+J 		Join current line and line below 
+xp 		Transpose character at cursor and character to right 
+~ 		Change case of letter (uppercase or lowercase) 
+
+
+(6)___________________________________________________
+  ___                        _             _           _   __    _       
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___  __ _(_) / /_ _(_)_ __  
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) \ V / |/ /\ V / | '  \ 
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \_/|_/_/  \_/|_|_|_|_|
+
+-----------------------------------------------------------
+Command 	Description 
+-----------------------------------------------------------
+u 		Undo previous command 
+U 		Undo all changes to current line 
+:u 		Undo previous last-line command 
+x 		Delete character at the cursor 
+X 		Delete character to the left of the cursor 
+dw 		Delete word (or part of word to right of cursor) 
+dd 		Delete line containing the cursor 
+D 		Delete part of line to right of cursor 
+dG 		Delete to end of file 
+d1G 		Delete from beginning of file to cursor 
+:5,10 d 	Delete lines 5-10 
+yy 		Yank or copy line 
+Y 		Yank or copy line 
+p 		Put yanked or deleted line below current line 
+P 		Put yanked or deleted line above current line 
+:1,2 co 3 	Copy lines 1-2 and put after line 3 
+:4,5 m 6 	Move lines 4-5 and put after line 6 
+(7)___________________________________________________
+  ___                        _             _           _   __    _       
+ / __|___ _ __  __ _ _ _  __| |___ ___  __| |___  __ _(_) / /_ _(_)_ __  
+| (__/ _ \ '  \/ _` | ' \/ _` / _ (_-< / _` / -_) \ V / |/ /\ V / | '  \ 
+ \___\___/_|_|_\__,_|_||_\__,_\___/__/ \__,_\___|  \_/|_/_/  \_/|_|_|_|_|
+-----------------------------------------------------------
+Command 	Description 
+-----------------------------------------------------------
+:set nu 	Show line numbers 
+:set nonu 	Hide line numbers 
+:set ic 	Searches should ignore case 
+:set noic 	Searches should be case sensitive 
+G 		Go to last line of file 
+1G 		Go to first line of file 
+21G 		Go to line 21 
+/string 	Search for string 
+?string 	Search backward for string 
+n 		Find next occurrence of string in search direction
+N 		Find previous occurrence of string in search direction
+:g/search/s//replace/g	Search and replace 
+Ctrl-L 		Clear (refresh) scrambled screen 
+:r filename 	Insert (read) file after cursor 
+:34 r filename 	Insert file after line 34 
+:w 		Save changes (write buffer) 
+:w filename 	Write buffer to named file 
+:wq 		Save changes and quit vi 
+ZZ 		Save changes and quit vi 
+:q! 		Quit without saving changes  
+(8)___________________________________________________
+__   __        _      _    _                            _       _              
+\ \ / /_ _ _ _(_)__ _| |__| |___ ___  ___ ___ _ _    __| |_ _ _(_)_ _  __ _ ___
+ \ V / _` | '_| / _` | '_ \ / -_|_-< (_-</ _ \ ' \  (_-<  _| '_| | ' \/ _` (_-<
+  \_/\__,_|_| |_\__,_|_.__/_\___/__/ /__/\___/_||_| /__/\__|_| |_|_||_\__, /__/
+                                                                      |___/    
+Todas las variables son de tipo string.  Los numeros se
+almacenan como strings, pero se pueden interpretar como
+numeros para realizar aritmetica.
+	- Los nombres deben comenzar con una letra.
+	- Los nombres no pueden tener espacios.
+	- Los nombres no contienen puntuacion.
+callow@calelePC:~$ X=calele
+callow@calelePC:~$ echo $X
+calele
+callow@calelePC:~$ read Y
+yoni
+callow@calelePC:~$ echo $Y
+yoni
+callow@calelePC:~$ echo -ne "Usuario:\t"; read USUARIO; echo -ne "Contrasena:\t"; read -s CONTRASENA
+Usuario:	JuanCho
+Contrasena:	callow@calelePC:~$ echo $CONTRASENA 
+asdfasdfasdf
+callow@calelePC:~$ 
+
+http://linuxcommand.org/lc3_wss0040.php
+http://linuxcommand.org/lc3_wss0100.php
+(9)___________________________________________________
+ _____                  _         _             _     
+|_   _| _ ___ ___  _ _ (_)_ _____| |___ ___  __| |___ 
+  | || '_/ -_|_-< | ' \| \ V / -_) / -_|_-< / _` / -_)
+  |_||_| \___/__/ |_||_|_|\_/\___|_\___/__/ \__,_\___|
+              _      _    _        
+__ ____ _ _ _(_)__ _| |__| |___ ___
+\ V / _` | '_| / _` | '_ \ / -_|_-<
+ \_/\__,_|_| |_\__,_|_.__/_\___/__/
+                                                      
+ _                 _        _ 
+| |   ___  __ __ _| |___ __(_)	$ f(){
+| |__/ _ \/ _/ _` | / -_|_-<_ 		local n=6
+|____\___/\__\__,_|_\___/__(_)	}
+                                $ echo $n
+
+Existen solo para la funcion actual.
+  ___ _     _          _        _ 
+ / __| |___| |__  __ _| |___ __(_) $ X=69
+| (_ | / _ \ '_ \/ _` | / -_|_-<_  $ bash
+ \___|_\___/_.__/\__,_|_\___/__(_) $ echo $X
+                                 
+Existen solo para el proceso de Bash actual.
+ ___                   _    _         _       _ 
+|   \ ___   __ _ _ __ | |__(_)___ _ _| |_ ___(_) $ export X
+| |) / -_) / _` | '  \| '_ \ / -_) ' \  _/ -_)_  $ bash
+|___/\___| \__,_|_|_|_|_.__/_\___|_||_\__\___(_) $ echo $X
+                                                 $ env
+Existen para el proceso de Bash actual y sus hijos.
+                                   
+(10)___________________________________________________
+__   __    _                     _               _                    _ 
+\ \ / /_ _| |___ _ _ ___ ___  __| |___   _ _ ___| |_ ___ _ _ _ _  ___(_)
+ \ V / _` | / _ \ '_/ -_|_-< / _` / -_) | '_/ -_)  _/ _ \ '_| ' \/ _ \_ 
+  \_/\__,_|_\___/_| \___/__/ \__,_\___| |_| \___|\__\___/_| |_||_\___(_)
+                                                                        
+    ___ 	$ ls jtxrydtiytfvhbfhlbh
+ |||__ \	ls: cannot access jtxrydtiytfvhbfhlbh: No such file or directory
+(_-< /_/	$ echo $?
+/ _/(_) 	2
+ ||     	$ man ls
+		$ bash
+		$ exit 69
+ ___            $ echo $?    _                   _     
+| _ \__ _ _ _ __ _ _ __  ___| |_ _ _ ___ ___  __| |___ 
+|  _/ _` | '_/ _` | '  \/ -_)  _| '_/ _ (_-< / _` / -_)
+|_| \__,_|_| \__,_|_|_|_\___|\__|_| \___/__/ \__,_\___|
+            _      _   _      _  _ 
+ ___ __ _ _(_)_ __| |_(_)  ||| \| | 
+(_-</ _| '_| | '_ \  _|_  (_-< .` |
+/__/\__|_| |_| .__/\__(_) / _/_|\_|
+             |_|           ||      
+$ cat > param.sh && chmod 755 param.sh	#usa &&, existen ; y ||
+#! /bin/bash
+echo "El nombre del script es:  " $0
+echo "El primer parametro es:   " $1
+echo "El segundo parametro es:  " $2
+$ ./param.sh bash para ninjas
+El nombre del script es:   ./param.sh
+El primer parametro es:    bash
+El segundo parametro es:   para
+
+(11)___________________________________________________
+ ___             _                 
+| __|  _ _ _  __(_)___ _ _  ___ ___
+| _| || | ' \/ _| / _ \ ' \/ -_|_-<
+|_| \_,_|_||_\__|_\___/_||_\___/__/
+
+Son como "mini-scripts" dado que se llaman mediante la misma
+sintaxis. Se declaran <nombre>(){ ... }.
+
+cool(){
+ if [ $(id -u) = "0" ]; then
+     echo "Sos cool."
+ else
+     echo "Sos un hipster que intenta pateticamente ser cool."
+ fi
+}
+ ___                         _              
+| _ \__ _ _ _ __ _ _ __  ___| |_ _ _ ___ ___ 
+|  _/ _` | '_/ _` | '  \/ -_)  _| '_/ _ (_-< 
+|_| \__,_|_| \__,_|_|_|_\___|\__|_| \___/__/ 
+
+$ param(){  echo "Mis parametros son: $0, $1, $2, $3, $4, $5, $6, $7."; }
+$ param perrow tonto "las perras" "los gatitos negros" "Vlad el impalador" "$X" '$X'
+Mis parametros son: /bin/bash, perrow, tonto, las perras, los gatitos negros, Vlad el impalador, calele, $X.
+(12)___________________________________________________
+ ___     _                                    _         
+| _ \___| |_ ___ _ _ _ _  __ _ _ _  __ ____ _| |___ _ _  
+|   / -_)  _/ _ \ '_| ' \/ _` | '_| \ V / _` | / _ \ '_|
+|_|_\___|\__\___/_| |_||_\__,_|_|    \_/\__,_|_\___/_| 
+
+Return permite asignar el estado de terminacion de la funcion,
+igual que exit en un script.
+
+	retorna69(){
+		return 69
+	}
+	retorna69
+	echo $?
+
+El "echo" sirve para "retornar" strings, que luego pueden 
+utilizar otras funciones y programas.
+
+$ ustedEs=$(cool)
+$ echo "Todas las guilas dicen que: \"$ustedEs\"" 
+Todas las guilas dicen que: "Sos un hipster que intenta pateticamente ser cool."
+
+(13)___________________________________________________
+__   __    _                     _            _     
+\ \ / /_ _| |___ _ _ ___ ___  __| |___ ___ __| |___ 
+ \ V / _` | / _ \ '_/ -_|_-< / _` / -_|_-</ _` / -_)
+  \_/\__,_|_\___/_| \___/__/ \__,_\___/__/\__,_\___|
+                                                    
+            _      _        ____              _                 
+ ___ __ _ _(_)_ __| |_ ___ / / _|_  _ _ _  __(_)___ _ _  ___ ___
+(_-</ _| '_| | '_ \  _(_-</ /  _| || | ' \/ _| / _ \ ' \/ -_|_-<
+/__/\__|_| |_| .__/\__/__/_/|_|  \_,_|_||_\__|_\___/_||_\___/__/
+             |_|                                                
+
+
+     ____      _ _  $ cat $(ls) #la version tonta de cat *
+ ||_/ /\ \    ( | ) $ kill `ps -e -o %p` # no lo hagan idiotas
+(_-< |  | |_   \|\| $ echo $(cool) | sed 's/cool/guapo' 
+/ _/ |  | ( )      	#^ version tonta de cool | sed 's/cool/guapo'
+ || \_\/_/|/       
+
+
+              _ Interpreta variables como codigo. (A lo Lisp :3)
+ _____ ____ _| |	$ VARI='grep "no lo hagan" ShaBang1.txt'
+/ -_) V / _` | |	$ eval $VARI
+\___|\_/\__,_|_|	$ VERPRESENT=$(grep "less ShaBang" ~/.bash_history)
+                	$ eval $VERPRESENT
+
+(14)___________________________________________________
+   _       _ _             _   _                     _                  
+  /_\  _ _(_) |_ _ __  ___| |_(_)__ __ _     ___ _ _| |_ ___ _ _ ___ ___
+ / _ \| '_| |  _| '  \/ -_)  _| / _/ _` |_  / -_) ' \  _/ -_) '_/ _ (_-<
+/_/ \_\_| |_|\__|_|_|_\___|\__|_\__\__,_( ) \___|_||_\__\___|_| \___/__/
+                 _ 
+ _____ ___ __ _ (_) La forma tradicional (y fea) de hacer aritmetica. Es comando externo.
+/ -_) \ / '_ \ '_| $ which expr		$ x=$(expr $x + 1)		$ x=$(expr $x * $y - 5)
+\___/_\_\ .__/_|(_)$ x=7		$ y=3				expr: syntax error
+        |_|        
+  ________  _ 	Permite realizar todo tipo de operaciones y comparaciones
+ / / /\ \ \(_)	aritmeticas tipo C.  La sintaxis $(()) lo vuelve mas poderoso.
+| | |  | | |_ 	$ i=420		$ j=-12		$ $?
+| | |  | | (_)	$ ((i++))	$ ((i>=j))	$ ((i = j--))
+ \_\_\/_/_/   	$ ((i*=69-42))	$ $?		$ echo $i $j
+ _     _   _ 	$ echo $((i+3))	$ ((i<j))
+| |___| |_(_)
+| / -_)  _|_ 	Sirve para lo mismo pero es mas "tieso".
+|_\___|\__(_)	$ i=420		$ let i*=69-42 	$ echo $j	$ echo $j
+		$ let i++	$ let "j=(i<9)"	$ let "j=(i>9)"
+             
+ _        _ 	bc es una calculadora de precision arbitraria.  Permite
+| |__  __(_)	sumar y restar numeros con decimales correctamente, pero
+| '_ \/ _|_ 	al multiplicar o dividirlos, redondea hacia abajo.
+|_.__/\__(_)
+            
+http://www.softpanorama.org/Scripting/Shellorama/arithmetic_expressions.shtml
+(15)___________________________________________________
+  ___             _ _    _               _        _ 
+ / __|___ _ _  __| (_)__(_)___ _ _  __ _| |___ __(_)
+| (__/ _ \ ' \/ _` | / _| / _ \ ' \/ _` | / -_|_-<_ 
+ \___\___/_||_\__,_|_\__|_\___/_||_\__,_|_\___/__(_)
+                                                    
+ _  __        _ _  __        _         _ if COMMANDS; then 
+(_)/ _|   ___| (_)/ _|   ___| |___ ___(_)    COMMANDS; 
+| |  _|  / -_) | |  _|  / -_) (_-</ -_)_ [ elif COMMANDS; then 
+|_|_|( ) \___|_|_|_|( ) \___|_/__/\___(_)    COMMANDS; ]... 
+     |/             |/                   [ else COMMANDS; ] 
+					 fi
+
+ _____       _       __ __ _ 	Test (o []) es un comando interno que
+|_   _|__ __| |_    | _|_ (_)	retorna 1 si es falso, 0 si verdadero.
+  | |/ -_|_-<  _|_  | | | |_ 	$ help test	$ [9 -ge 10]
+  |_|\___/__/\__( ) | | | (_)	$ test -f asdf	$ test 54 > 6
+                |/  |__|__|  	$ echo $?	$ ["calele" = "calele"]
+
+                 _ 	case X in
+ __ __ _ ___ ___(_)	    5 ) echo "Equis es igual a cinco."
+/ _/ _` (_-</ -_)_ 	    3 ) echo "Equis es igual a tres."
+\__\__,_/__/\___(_)	    * ) echo "Equis invalida."
+			esac
+http://linuxcommand.org/lc3_wss0110.php
+http://linuxcommand.org/lc3_wss0090.php
+(16)___________________________________________________
+  ___ _    _        _ 
+ / __(_)__| |___ __(_)
+| (__| / _| / _ (_-<_ 
+ \___|_\__|_\___/__(_)
+                      
+        _    _ _     _ 
+__ __ _| |_ (_) |___(_)
+\ V  V / ' \| | / -_)_ 
+ \_/\_/|_||_|_|_\___(_)
+                       
+  __        _ 
+ / _|___ _ (_)
+|  _/ _ \ '_| 
+|_| \___/_|(_)
+              
+(17)___________________________________________________
+(18)___________________________________________________
