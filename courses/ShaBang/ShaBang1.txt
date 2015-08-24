@@ -441,9 +441,9 @@ http://www.softpanorama.org/Scripting/Shellorama/arithmetic_expressions.shtml
                 |/  |__|__|  	$ echo $?	$ ["calele" = "calele"]
 
                  _ 	case X in
- __ __ _ ___ ___(_)	    5 ) echo "Equis es igual a cinco."
-/ _/ _` (_-</ -_)_ 	    3 ) echo "Equis es igual a tres."
-\__\__,_/__/\___(_)	    * ) echo "Equis invalida."
+ __ __ _ ___ ___(_)	    5 ) echo "Equis es igual a cinco.";;
+/ _/ _` (_-</ -_)_ 	    3 ) echo "Equis es igual a tres.";;
+\__\__,_/__/\___(_)	    * ) echo "Equis invalida.";;
 			esac
 http://linuxcommand.org/lc3_wss0110.php
 http://linuxcommand.org/lc3_wss0090.php
@@ -458,10 +458,33 @@ __ __ _| |_ (_) |___(_)
 \ V  V / ' \| | / -_)_ 
  \_/\_/|_||_|_|_\___(_)
                        
+while COMMANDS; do 
+	COMMANDS; 
+done
+
+until COMMANDS; do 
+	COMMANDS; 
+done
   __        _ 
  / _|___ _ (_)
 |  _/ _ \ '_| 
 |_| \___/_|(_)
               
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+
+for i in {0..10..2}
+  do
+     echo "Welcome $i times"
+ done
+
+for (( c=1; c<=5; c++ ))
+do
+   echo "Welcome $c times"
+done
+
+http://www.cyberciti.biz/faq/bash-for-loop/
 (17)___________________________________________________
 (18)___________________________________________________
