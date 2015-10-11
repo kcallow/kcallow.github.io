@@ -1,19 +1,37 @@
 <body>
 <script src="https://apis.google.com/js/platform.js"></script>
 
-<div class="g-savetodrive" data-src="http://www.nerdcoremovement.com/wp-content/uploads/2015/08/Kill-Bill-3-924x535.png" data-filename="Kill Bill modafokaaa" data-sitename="Porno para ninos">
+<div class="g-savetodrive" data-src="http://www.nerdcoremovement.com/wp-content/uploads/2015/08/Kill-Bill-3-924x535.png" data-filename="Kill Bill modafokaaa" data-sitename="Porno para ninos"> </div>
 
-</div>
-	<script type="text/javascript" src="https://apis.google.com/js/api.js?onLoad=onApiLoad">
-	function onApiLoad() {
-		gapi.load('auth', {'callback':onAuthApiLoad});
-		gapi.load('picker');
-	}
-	function onAuthApiLoad() {
-		window.gapi.auth.authorize({
+<script type="text/javascript" src="https://apis.google.com/js/api.js?onLoad=onApiLoad">
+</script>
+
+<script>
+function onApiLoad() {
+	gapi.load('auth', {'callback':onAuthApiLoad});
+	gapi.load('picker');
+}
+function onAuthApiLoad() {
+	window.gapi.auth.authorize({
 			'client-id': '277260915471-sbasjm8ip2gv01m3l47o98hfgiesahs5',
 			'scope': ['https://www.googleapis.com/auth/drive']
-		}, handleAuthResult);
+			}, handleAuthResult);
+}
+var oauthToken;
+function handleAuthResult(authResult) {
+	if (authResult && !authResult.error) {
+		oauthToken = authResult.access_token;
+		createPicker();
 	}
-	</script>
+}
+function createPicker() {
+	var picker = new google.picker.PickerBuilder()
+		.addView(new google.picker.DocsUploadView())
+		.addView(new google.picker.DocsView())
+		.setOAuthToken(oauthToken)
+		.setDeveloperKey('AIzaSyBhQ_bZRXcvbzxRmxASQzNsn-db4QervoU')
+		.build();
+	picker.setVisible(true);
+}
+</script>
 </body>
