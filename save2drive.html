@@ -1,8 +1,4 @@
 <body>
-<script src="https://apis.google.com/js/platform.js"></script>
-
-<div class="g-savetodrive" data-src="http://www.nerdcoremovement.com/wp-content/uploads/2015/08/Kill-Bill-3-924x535.png" data-filename="Kill Bill modafokaaa" data-sitename="Porno para ninos"> </div>
-
 <script type="text/javascript" src="https://apis.google.com/js/api.js?onLoad=onApiLoad">
 </script>
 
@@ -13,14 +9,14 @@ function onApiLoad() {
 }
 function onAuthApiLoad() {
 	window.gapi.auth.authorize({
-			'client-id': '277260915471-sbasjm8ip2gv01m3l47o98hfgiesahs5',
+			'client-id': '277260915471-sbasjm8ip2gv01m3l47o98hfgiesahs5.apps.googleusercontent.com',
 			'scope': ['https://www.googleapis.com/auth/drive']
 			}, handleAuthResult);
 }
-var oauthToken;
+var accessToken;
 function handleAuthResult(authResult) {
 	if (authResult && !authResult.error) {
-		oauthToken = authResult.access_token;
+		accessToken = authResult.access_token;
 		createPicker();
 	}
 }
@@ -28,10 +24,11 @@ function createPicker() {
 	var picker = new google.picker.PickerBuilder()
 		.addView(new google.picker.DocsUploadView())
 		.addView(new google.picker.DocsView())
-		.setOAuthToken(oauthToken)
+		.setOAuthToken(accessToken)
 		.setDeveloperKey('AIzaSyBhQ_bZRXcvbzxRmxASQzNsn-db4QervoU')
 		.build();
 	picker.setVisible(true);
 }
 </script>
+
 </body>
